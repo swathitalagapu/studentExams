@@ -1,6 +1,5 @@
 package com.example.studentExams.controller;
 
-import com.example.studentExams.dto.StudentMarks;
 import com.example.studentExams.entity.Subject;
 import com.example.studentExams.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +33,4 @@ public class SubjectController {
         return subjectService.getAllSubjects();
     }
 
-    @GetMapping("/getParticularStudent/{studentId}")
-    public ResponseEntity<List<StudentMarks>> getParticularStudent(@PathVariable int studentId){
-        List<StudentMarks> studentMarks =subjectService.getMarksByRollNo(studentId);
-        return new ResponseEntity<>(studentMarks, HttpStatus.OK);
-    }
 }

@@ -24,30 +24,19 @@ public class SubjectService {
     }
 
     public List<Subject> getAllSubjects() {
+
         return subjectRepository.findAll();
     }
 
     public Subject createSubject(int studentId, Subject subject) {
 
         Subject subject1 = studentRepository.findById(studentId).map(student -> {
-            int subjectId = subject.getId();
-//           int sub = subject.getEnglish() + subject.getMaths() + subject.getScience() + subject.getSocial();
-//           int avg = sub/4;
+//            int subjectId = subject.getId();
             return subjectRepository.save(subject);
         }).orElseThrow(() -> new RuntimeException("no data" + studentId));
 
         return subject1;
     }
 
-    public List<StudentMarks> getMarksByRollNo(int studentId) {
-//        public List<StudentMarks> getMarksByRollNo(int studentId) {
-        Optional<Student> student = studentRepository.findById(studentId);
-        if (student.isPresent()) {
-        List<StudentMarks> studentMarks = studentRepository.getMarksByRollNo(studentId);
-        System.out.println(studentMarks);
-        return studentMarks;
-    }
-        return null;
-    }
 
 }
