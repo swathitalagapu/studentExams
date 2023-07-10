@@ -15,7 +15,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 //    public List<StudentMarks> getMarksByRollNo(@Param("id") int studentId);
 
 
-    @Query(value = "SELECT s FROM Student s WHERE s.id = (SELECT st.id FROM Student st INNER JOIN st.subjects sub GROUP BY st.id ORDER BY SUM(sub.english + sub.maths + sub.science + sub.social) DESC LIMIT 1)")
+    @Query(value = "SELECT s FROM Student s WHERE s.id = (SELECT s.id FROM Student s INNER JOIN s.subjects sub GROUP BY s.id ORDER BY SUM(sub.english + sub.maths + sub.science + sub.social) DESC LIMIT 1)")
     Student getClassTopper();
 
 }

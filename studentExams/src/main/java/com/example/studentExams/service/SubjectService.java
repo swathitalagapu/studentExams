@@ -1,6 +1,6 @@
 package com.example.studentExams.service;
 
-import com.example.studentExams.dto.StudentMarks;
+//import com.example.studentExams.dto.StudentMarks;
 import com.example.studentExams.entity.Student;
 import com.example.studentExams.entity.Subject;
 import com.example.studentExams.repository.StudentRepository;
